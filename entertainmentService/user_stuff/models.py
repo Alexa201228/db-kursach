@@ -4,6 +4,10 @@ from users.models import User
 from services.models import Service
 from films.models import Genre
 
+from games.models import Game
+from films.models import Film
+from series.models import Series
+
 
 class Community(models.Model):
     """
@@ -29,6 +33,7 @@ class UserGameStatistics(models.Model):
     Сущность 'Игровая статистика пользователя'
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='game_statistics')
+    games = models.ForeignKey(Game, on_delete=models.DO_NOTHING, related_name='game_statistics')
     genres = models.ManyToManyField(Genre, related_name='game_statistics')
     spent_time = models.TimeField(verbose_name='Затраченное время')
 
@@ -38,6 +43,7 @@ class UserFilmStatistics(models.Model):
         Сущность 'Статистика пользователя по фильмам'
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='film_statistics')
+    films = models.ForeignKey(Film, on_delete=models.DO_NOTHING, related_name='film_statistics')
     genres = models.ManyToManyField(Genre, related_name='film_statistics')
     spent_time = models.TimeField(verbose_name='Затраченное время')
 
@@ -47,6 +53,7 @@ class UserSeriesStatistics(models.Model):
         Сущность 'Статистика пользователя по сериалам'
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='series_statistics')
+    series = models.ForeignKey(Series, on_delete=models.DO_NOTHING, related_name='series_statistics')
     genres = models.ManyToManyField(Genre, related_name='series_statistics')
     spent_time = models.TimeField(verbose_name='Затраченное время')
 

@@ -1,6 +1,6 @@
 from django.db import models
 
-from company.models import Company
+from companies.models import Company
 from users.models import Director, Actor
 from films.models import Genre
 

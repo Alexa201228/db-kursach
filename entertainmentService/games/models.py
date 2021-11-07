@@ -1,7 +1,7 @@
 from django.db import models
 
 from companies.models import Company
-from film.models import Genre
+from films.models import Genre
 
 
 class Game(models.Model):

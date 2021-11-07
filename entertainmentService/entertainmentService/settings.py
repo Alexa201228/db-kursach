@@ -38,10 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
+    'drf_yasg',
+
     # custom apps
     'users',
     'films',
     'companies',
+    'games',
+    'series',
+    'services',
+    'user_stuff',
 
 ]
 
