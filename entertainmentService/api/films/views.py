@@ -5,7 +5,7 @@ from films.models import Film
 from api.permissions import IsManager
 
 
-class FilmListView(mixins.ListModelMixin, viewsets.GenericViewSet):
+class FilmListView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = FilmSerializer
     queryset = Film.objects.all()
 

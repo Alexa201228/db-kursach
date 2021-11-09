@@ -5,7 +5,7 @@ from series.models import Series
 from api.permissions import IsManager
 
 
-class SeriesListView(mixins.ListModelMixin, viewsets.GenericViewSet):
+class SeriesListView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = SeriesSerializer
     queryset = Series.objects.all()
 

@@ -58,7 +58,7 @@ class UserSeriesStatistics(models.Model):
     spent_time = models.TimeField(verbose_name='Затраченное время')
 
 
-class Comments(models.Model):
+class Comment(models.Model):
     """
     Сущность 'Комментарий'
     """

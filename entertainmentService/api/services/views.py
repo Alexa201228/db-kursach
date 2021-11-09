@@ -5,7 +5,7 @@ from services.models import Service
 from api.permissions import IsManager
 
 
-class ServiceListView(mixins.ListModelMixin, viewsets.GenericViewSet):
+class ServiceListView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = ServiceSerializer
     queryset = Service.objects.all()
 

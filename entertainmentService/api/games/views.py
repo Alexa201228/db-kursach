@@ -5,7 +5,7 @@ from games.models import Game
 from api.permissions import IsManager
 
 
-class GameListView(mixins.ListModelMixin, viewsets.GenericViewSet):
+class GameListView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     serializer_class = GameSerializer
     queryset = Game.objects.all()
 
