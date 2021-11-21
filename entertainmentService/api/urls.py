@@ -7,7 +7,9 @@ from api.companies.views import CompanyListView, CompanyDetailView
 from api.games.views import GameListView, GameDetailView
 from api.series.views import SeriesListView, SeriesDetailView
 from api.services.views import ServiceListView, ServiceDetailView
-from api.user_stuff.views import UserGameStatisticsView, CommentModelViewSet
+from api.user_stuff.views import UserGameStatisticsView, CommentModelViewSet, \
+    UserFilmStatisticsView, UserSeriesStatisticsView, CommunityModelViewSet,\
+SubscriptionModelViewSet, SubscriptionListDetailUpdateView
 
 
 router = routers.DefaultRouter()
@@ -25,6 +27,11 @@ router.register('game/detail', GameDetailView, basename='game-details')
 router.register('service/detail', ServiceDetailView, basename='service-details')
 router.register('game_statistics', UserGameStatisticsView, basename='game-statistics')
 router.register('comments', CommentModelViewSet, basename='comment')
+router.register('series_statistics', UserSeriesStatisticsView, basename='series-statistics')
+router.register('film_statistics', UserFilmStatisticsView, basename='film-statistics')
+router.register('community', CommunityModelViewSet, basename='community')
+router.register('subscriptions', SubscriptionModelViewSet, basename='subscriptions')
+router.register('subscription/detail', SubscriptionListDetailUpdateView, basename='subscription-detail')
 
 
 

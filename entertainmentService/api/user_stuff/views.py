@@ -13,7 +13,7 @@ from ..permissions import IsManager
 
 class CommentModelViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
-    queryset = Comment.objects.all()
+    queryset = Comment.objects.raw('SELECT * FROM user_stuff_comment')
 
 
 class UserGameStatisticsView(mixins.RetrieveModelMixin,
@@ -59,6 +59,7 @@ class SubscriptionModelViewSet(viewsets.ModelViewSet):
 
 class SubscriptionListDetailUpdateView(mixins.ListModelMixin,
                                        mixins.RetrieveModelMixin,
-                                       mixins.UpdateModelMixin):
+                                       mixins.UpdateModelMixin,
+                                       viewsets.GenericViewSet):
     serializer_class = SubscriptionSerializer
     queryset = Subscription.objects.all()
