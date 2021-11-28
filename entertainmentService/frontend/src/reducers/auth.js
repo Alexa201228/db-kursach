@@ -1,0 +1,39 @@
+import {LOGIN_SUCCESS, REGISTER_FAIL, REGISTER_SUCCESS} from "../actions/types";
+
+const initialState = {
+    access_token: localStorage.getItem('access_token'),
+    refresh_token: localStorage.getItem('refresh_token'),
+    isAuthenticated: false
+};
+
+export default function (state = initialState, action){
+    switch (action.type){
+        case REGISTER_SUCCESS:
+            localStorage.setItem('access_token', action.payload.access_token);
+            localStorage.setItem('refresh_token', action.payload.refresh_token);
+
+            return{
+                ...state,
+                ...action.payload
+            }
+
+        case LOGIN_SUCCESS:
+            localStorage.setItem('access_token', action.payload.access);
+            localStorage.setItem('refresh_token', action.payload.refresh);
+
+            return{
+                ...state,
+                isAuthenticated: true
+            }
+        case REGISTER_FAIL:
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('refresh_token');
+            return {
+                ...state,
+                isAuthenticated: false
+            }
+
+        default:
+            return state;
+    }
+}

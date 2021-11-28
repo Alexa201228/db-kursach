@@ -1,6 +1,9 @@
 from django.urls import path, include
 
 from rest_framework import routers
+from rest_framework_simplejwt.views import TokenObtainPairView,\
+                                            TokenRefreshView
+
 from api.users.views import RegisterUserApiView, UserApiView
 from api.films.views import FilmListView, FilmDetailView
 from api.companies.views import CompanyListView, CompanyDetailView
@@ -34,8 +37,8 @@ router.register('subscriptions', SubscriptionModelViewSet, basename='subscriptio
 router.register('subscription/detail', SubscriptionListDetailUpdateView, basename='subscription-detail')
 
 
-
 urlpatterns = [
     path('register/', RegisterUserApiView.as_view(), name='register'),
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('', include(router.urls)),
 ]

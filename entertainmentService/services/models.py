@@ -10,6 +10,9 @@ class Service(models.Model):
     Сущность 'Сервис'
     """
     name = models.CharField(max_length=30, verbose_name='Название сервиса')
-    films = models.ManyToManyField(Film, related_name='services')
-    series = models.ManyToManyField(Series, related_name='services')
-    games = models.ManyToManyField(Game, related_name='services')
+    films = models.ManyToManyField(Film, related_name='services', null=True, blank=True)
+    series = models.ManyToManyField(Series, related_name='services', null=True, blank=True)
+    games = models.ManyToManyField(Game, related_name='services', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
