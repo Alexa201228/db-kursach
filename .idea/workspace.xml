@@ -1,49 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b144a24c-622d-4d88-aaf9-be0b5761b9c6" name="Changes" comment="Add frontend folder">
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/types.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Registration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Services.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/services/migrations/0002_auto_20211128_1310.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/services/migrations/0003_auto_20211128_1310.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/users/migrations/0002_user_is_manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="b144a24c-622d-4d88-aaf9-be0b5761b9c6" name="Changes" comment="Create registration, authorization and base view with frontend">
+      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Films.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Homepage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/MenuList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/companies/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/companies/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/services/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/services/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/users/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/api/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/entertainmentService/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/entertainmentService/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/films/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/films/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/films/migrations/0002_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/games/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/games/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/series/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/series/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/series/migrations/0002_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/services/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/services/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/services/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/services/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/services/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/services/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/user_stuff/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/user_stuff/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/user_stuff/migrations/0002_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/users/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/users/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/users/migrations/0002_auto_20211107_0906.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/users/migrations/0003_auto_20211107_0912.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Services.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +81,10 @@
       <workItem from="1636447950380" duration="4790000" />
       <workItem from="1636458857777" duration="3242000" />
       <workItem from="1637508867038" duration="2057000" />
-      <workItem from="1638073900502" duration="24644000" />
+      <workItem from="1638073900502" duration="25256000" />
+      <workItem from="1638376875396" duration="957000" />
+      <workItem from="1638460428801" duration="4168000" />
+      <workItem from="1638601237350" duration="19544000" />
     </task>
     <task id="LOCAL-00001" summary="Add all necessary models to fill db">
       <created>1635687696923</created>
@@ -144,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637510928764</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Create registration, authorization and base view with frontend">
+      <created>1638103341994</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638103341994</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +153,7 @@
     <MESSAGE value="Add permissions and more serializers and views" />
     <MESSAGE value="Add user_stuff serializers and views" />
     <MESSAGE value="Add frontend folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add frontend folder" />
+    <MESSAGE value="Create registration, authorization and base view with frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create registration, authorization and base view with frontend" />
   </component>
 </project>

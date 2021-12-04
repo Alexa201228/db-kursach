@@ -1,12 +1,26 @@
 import axios from "axios";
-import {REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAILED, USER_LOADED, USER_LOADING} from "./types";
+import {
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
+    LOGIN_SUCCESS,
+    LOGIN_FAILED,
+    USER_LOADED,
+    USER_LOADING,
+    LOGOUT_USER
+} from "./types";
 import {API_URL} from "../constants";
+import jwtDecode from "jwt-decode";
 
 
 export const loadUser = () => (dispatch, getState) => {
     dispatch({ type: USER_LOADING });
+    const access_token = localStorage.getItem('access_token');
+    let curr_user = null;
+    if(access_token) {
+        curr_user = jwtDecode(access_token);
+
     axios
-        .get('/api/auth/user', tokenConfig(getState))
+        .get(API_URL + `/users/${curr_user.user_id}/`, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: USER_LOADED,
@@ -16,6 +30,7 @@ export const loadUser = () => (dispatch, getState) => {
         }).catch(err => {
             console.log(err);
         });
+    }
 };
 
 // register function
@@ -54,21 +69,33 @@ export const login = ({email, password}) => dispatch => {
 
     axios.post(API_URL+'/login/', body, config)
         .then(res => {
-            console.log(res.data)
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: res.data
             })
-            console.log(localStorage)
             alert("Вы успешно авторизировались!")
         })
         .catch(err => {
-            console.log(err.data);
             dispatch({
                 type: LOGIN_FAILED
             })
         })
 };
+
+//logout user
+export const logout = () => (dispatch, getState) => {
+    dispatch({type: LOGOUT_USER})
+    axios
+        .post(API_URL + '/logout/', tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: LOGOUT_USER
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
 
 
 export const tokenConfig = getState => {

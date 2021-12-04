@@ -1,5 +1,7 @@
-from rest_framework import viewsets, status, generics, mixins, permissions
+from rest_framework import viewsets, status, generics, mixins, permissions, views
 from rest_framework.response import Response
+from rest_framework_simplejwt.token_blacklist.models import OutstandingToken, \
+    BlacklistedToken
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from users.models import User
@@ -39,5 +41,17 @@ class UserApiView(mixins.RetrieveModelMixin,
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
-    def get_queryset(self):
-        return self.request.user
+
+class LogoutView(views.APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        if self.request.data.get('all'):
+            token: OutstandingToken
+            for token in OutstandingToken.objects.filter(user=request.user):
+                _, _ = BlacklistedToken.objects.get_or_create(token=token)
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        refresh_token = self.request.data.get('refresh_token')
+        token = RefreshToken(token=refresh_token)
+        token.blacklist()
+        return Response(status=status.HTTP_200_OK)

@@ -4,7 +4,7 @@ from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView,\
                                             TokenRefreshView
 
-from api.users.views import RegisterUserApiView, UserApiView
+from api.users.views import RegisterUserApiView, UserApiView, LogoutView
 from api.films.views import FilmListView, FilmDetailView
 from api.companies.views import CompanyListView, CompanyDetailView
 from api.games.views import GameListView, GameDetailView
@@ -40,5 +40,7 @@ router.register('subscription/detail', SubscriptionListDetailUpdateView, basenam
 urlpatterns = [
     path('register/', RegisterUserApiView.as_view(), name='register'),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('login/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('', include(router.urls)),
 ]

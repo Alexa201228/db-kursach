@@ -1,8 +1,9 @@
 import React, {Fragment, useState} from "react";
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
+import {connect, useSelector} from "react-redux";
 import {Button, Container, Form, FormGroup, Input, Label} from "reactstrap";
 import {login} from "../../actions/auth";
+import {Redirect} from "react-router-dom";
 
 
 export function Login(props){
@@ -12,6 +13,7 @@ export function Login(props){
         password: '',
   })
 
+    const {isAuthenticated} = useSelector(state => state.auth)
   const onSubmit = (e) => {
     e.preventDefault();
     props.login({
@@ -24,10 +26,13 @@ export function Login(props){
     setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value })
   };
 
+  if(isAuthenticated){
+      return <Redirect to={'/'}/>
+  }
 
     return(
         <Fragment>
-            <Container>
+            <Container mt={5}>
                 <Form onSubmit={onSubmit}>
                 <FormGroup>
                     <Label for='email'>Email</Label>

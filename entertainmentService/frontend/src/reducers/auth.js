@@ -1,8 +1,9 @@
-import {LOGIN_SUCCESS, REGISTER_FAIL, REGISTER_SUCCESS} from "../actions/types";
+import {LOGIN_SUCCESS, LOGOUT_USER, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED} from "../actions/types";
 
 const initialState = {
     access_token: localStorage.getItem('access_token'),
     refresh_token: localStorage.getItem('refresh_token'),
+    user: null,
     isAuthenticated: false
 };
 
@@ -16,6 +17,13 @@ export default function (state = initialState, action){
                 ...state,
                 ...action.payload
             }
+        case USER_LOADED:
+
+            return{
+                ...state,
+                user: action.payload,
+                isAuthenticated: true
+            }
 
         case LOGIN_SUCCESS:
             localStorage.setItem('access_token', action.payload.access);
@@ -25,6 +33,7 @@ export default function (state = initialState, action){
                 ...state,
                 isAuthenticated: true
             }
+        case LOGOUT_USER:
         case REGISTER_FAIL:
             localStorage.removeItem('access_token');
             localStorage.removeItem('refresh_token');
