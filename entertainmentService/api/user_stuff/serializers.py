@@ -6,7 +6,7 @@ from api.users.serializers import UserSerializer
 
 
 class CommunitySerializer(serializers.ModelSerializer):
-    users = UserSerializer(read_only=True, many=True)
+    users = UserSerializer(required=False, many=True)
 
     class Meta:
         model = Community
@@ -15,7 +15,7 @@ class CommunitySerializer(serializers.ModelSerializer):
 
 
 class UserGameStatisticsSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserSerializer(required=True)
 
     class Meta:
         model = UserGameStatistics
@@ -24,7 +24,7 @@ class UserGameStatisticsSerializer(serializers.ModelSerializer):
 
 
 class UserFilmStatisticsSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserSerializer(required=True)
 
     class Meta:
         model = UserFilmStatistics
@@ -33,7 +33,7 @@ class UserFilmStatisticsSerializer(serializers.ModelSerializer):
 
 
 class UserSeriesStatisticsSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserSerializer(required=True)
 
     class Meta:
         model = UserSeriesStatistics
@@ -42,7 +42,7 @@ class UserSeriesStatisticsSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserSerializer(required=True)
 
     class Meta:
         model = Comment

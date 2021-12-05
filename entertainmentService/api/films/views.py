@@ -10,9 +10,12 @@ class FilmListView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
     queryset = Film.objects.raw('SELECT ')
 
 
-class FilmDetailView(viewsets.GenericViewSet, mixins.CreateModelMixin,
-                        mixins.UpdateModelMixin, mixins.RetrieveModelMixin,
-                        mixins.DestroyModelMixin):
+class FilmDetailView(viewsets.GenericViewSet,
+                     mixins.ListModelMixin,
+                     mixins.CreateModelMixin,
+                     mixins.UpdateModelMixin,
+                     mixins.RetrieveModelMixin,
+                     mixins.DestroyModelMixin):
     serializer_class = FilmSerializer
     queryset = Film.objects.all()
     permission_classes = [IsManager]

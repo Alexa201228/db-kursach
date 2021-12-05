@@ -6,10 +6,9 @@ import Login from "./components/account/Login";
 import {store} from "./store";
 import {Provider} from "react-redux";
 import Header from "./base_views/Header";
-import Homepage from "./components/services/Homepage";
-import React, {Fragment, useEffect} from "react";
+import Homepage from "./base_views/Homepage";
+import React, {useEffect} from "react";
 import {loadUser} from "./actions/auth";
-import {makeStyles} from "@mui/styles";
 import {createTheme, ThemeProvider} from "@mui/material";
 
 
@@ -20,17 +19,12 @@ function App() {
     }, [])
     const theme = createTheme()
   return (
+      <ThemeProvider theme={theme}>
     <div className="App">
         <Provider store={store}>
             <Router>
-                <ThemeProvider theme={theme}>
-                    <Fragment>
-                       <Header/>
-                    <Homepage/>
-                    </Fragment>
-
-                </ThemeProvider>
-
+                <Header/>
+                <Homepage/>
                 <Switch>
                    <Route path='/register' component={Registration}/>
                     <Route path='/login' component={Login}/>
@@ -38,6 +32,7 @@ function App() {
             </Router>
         </Provider>
     </div>
+      </ThemeProvider>
   );
 }
 

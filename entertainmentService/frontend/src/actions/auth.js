@@ -49,6 +49,7 @@ export const register = ({ email, password, is_manager }) => dispatch => {
                 type: REGISTER_SUCCESS,
                 payload: res.data
             });
+            alert('Вы успешно зарегистрировались!')
         }).catch(err => {
             console.log(err)
             dispatch({
@@ -85,8 +86,10 @@ export const login = ({email, password}) => dispatch => {
 //logout user
 export const logout = () => (dispatch, getState) => {
     dispatch({type: LOGOUT_USER})
+    const body = JSON.stringify({'access_token': localStorage.getItem('access_token'),
+    'refresh_token': localStorage.getItem('refresh_token')})
     axios
-        .post(API_URL + '/logout/', tokenConfig(getState))
+        .post(API_URL + '/logout/', body, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: LOGOUT_USER

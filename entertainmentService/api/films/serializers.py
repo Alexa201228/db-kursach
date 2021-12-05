@@ -11,7 +11,7 @@ class GenreSerializer(serializers.ModelSerializer):
 
 
 class FilmSerializer(serializers.ModelSerializer):
-    genres = GenreSerializer(read_only=True, many=True)
+    genres = GenreSerializer(required=False, many=True)
 
     class Meta:
         model = Film

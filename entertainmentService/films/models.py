@@ -16,8 +16,8 @@ class Film(models.Model):
     Сущность 'Фильм'
     """
     title = models.CharField(verbose_name='Название фильма', max_length=250)
-    director = models.ForeignKey(Director, on_delete=models.DO_NOTHING, related_name='films')
-    company = models.ManyToManyField(Company, related_name='films')
-    actors = models.ManyToManyField(Actor, related_name='films')
-    genres = models.ManyToManyField(Genre, related_name='films')
+    director = models.ForeignKey(Director, on_delete=models.DO_NOTHING, related_name='films', null=True, blank=True)
+    company = models.ManyToManyField(Company, related_name='films', blank=True)
+    actors = models.ManyToManyField(Actor, related_name='films', blank=True)
+    genres = models.ManyToManyField(Genre, related_name='films', blank=True)
 

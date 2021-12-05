@@ -40,9 +40,6 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		justifyContent:'flex-end'
 	},
-	labelContainer:{
-		width: '70%'
-	},
 	toolbar: theme.mixins.toolbar,
  }));
 
@@ -72,7 +69,6 @@ export function Header(props){
     )
     const anonymus = (
         <Fragment>
-            <Container>
 				<Box>
 			<Button
 				href=""
@@ -97,7 +93,6 @@ export function Header(props){
 				Login
 			</Button>
             </Box>
-            </Container>
         </Fragment>
     )
 
@@ -113,7 +108,7 @@ export function Header(props){
 				>
 				<Toolbar className={classes.toolbar}>
 					<Container className={classes.headerContainer}>
-						<Container className={classes.labelContainer}>
+						<Container>
 								<Typography
 								variant="h6"
 								color="inherit"
@@ -129,9 +124,10 @@ export function Header(props){
 								</Link>
 								</Typography>
 							</Container>
-						<Container className={classes.buttonContainer}>
+
+					</Container>
+					<Container className={classes.buttonContainer}>
 							{isAuthenticated ? authenticated : anonymus }
-						</Container>
 					</Container>
 				</Toolbar>
 				</AppBar>

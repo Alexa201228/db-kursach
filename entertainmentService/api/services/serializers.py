@@ -7,9 +7,9 @@ from api.series.serializers import SeriesSerializer
 
 
 class ServiceSerializer(serializers.ModelSerializer):
-    films = FilmSerializer(many=True)
-    games = GameSerializer(many=True)
-    series = SeriesSerializer(many=True)
+    films = FilmSerializer(many=True, required=False)
+    games = GameSerializer(many=True, required=False)
+    series = SeriesSerializer(many=True, required=False)
 
     class Meta:
         model = Service

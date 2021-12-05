@@ -1,8 +1,7 @@
 import React, {Fragment} from "react";
-import {AppBar, Box, CssBaseline, Divider, Drawer, Hidden, IconButton, List, Toolbar, Typography} from "@mui/material";
+import {CssBaseline, Divider, Drawer, Hidden, List, Toolbar} from "@mui/material";
 import {Link, withRouter} from "react-router-dom";
 import {ListItem, MuiThemeProvider} from "material-ui";
-import {Header} from "../../base_views/Header";
 import {makeStyles} from "@mui/styles";
 
 const drawerWidth = 240;
@@ -27,13 +26,6 @@ const useStyles = makeStyles((theme) => ({
      },
    },
    appBar: {
-     [theme.breakpoints.up('sm')]: {
-       width: `calc(100% - ${drawerWidth}px)`,
-       marginLeft: drawerWidth,
-     },
-     [theme.breakpoints.down('xs')]:{
-      marginTop: theme.spacing(17)
-     },
      marginTop: theme.spacing(8)
    },
    menuButton: {
@@ -51,29 +43,19 @@ const useStyles = makeStyles((theme) => ({
    drawerPaper: {
      width: drawerWidth,
      marginTop: theme.spacing(8),
-     [theme.breakpoints.down('xs')]:{
-      marginTop: theme.spacing(17)
-     },
    },
    content: {
      flexGrow: 1,
        marginTop: theme.spacing(12),
-     [theme.breakpoints.down('xs')]:{
-      padding: 0,
-     },
+       marginLeft: theme.spacing(10)
    },
  }));
 
-export function MenuList(props) {
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+export function MenuList() {
 
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
         const classes = useStyles();
     const drawer = (
         <div>
-            <Toolbar/>
             <Divider/>
             <List>
                 {Object.keys(MENU_ITEMS).map((key, val) => (
@@ -102,9 +84,7 @@ export function MenuList(props) {
        </nav>
        <main className={classes.content}>
          <div className={classes.toolbar} />
-
           </main>
-
      </div>
         </MuiThemeProvider>
     )

@@ -1,8 +1,9 @@
 import React, {Fragment} from "react";
 import MenuList from "./MenuList";
-import {Container} from "@mui/material";
 import {Route, Switch} from "react-router-dom";
-import Services from "./Services";
+import Services from "../components/services/Services";
+import ServiceDetails from "../components/services/ServiceDetails";
+import Films from "../components/films/Films";
 
 export function MainPage(){
 
@@ -14,7 +15,9 @@ export function MainPage(){
             </div>
                 <div className="col-sm-10 area-right float-right">
                         <Switch>
+                            <Route exact path='/service/detail/:id' component={ServiceDetails}/>
                             <Route path='/service/detail/' component={Services}/>
+                            <Route exact path='/film/detail/' component={Films}/>
                         </Switch>
                     </div>
             </div>

@@ -12,7 +12,7 @@ class GameListView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.Ge
 
 class GameDetailView(viewsets.GenericViewSet, mixins.CreateModelMixin,
                         mixins.UpdateModelMixin, mixins.RetrieveModelMixin,
-                        mixins.DestroyModelMixin):
+                        mixins.ListModelMixin, mixins.DestroyModelMixin):
     serializer_class = GameSerializer
     queryset = Game.objects.all()
     permission_classes = [IsManager]

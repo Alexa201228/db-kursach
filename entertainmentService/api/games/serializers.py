@@ -5,7 +5,7 @@ from api.films.serializers import GenreSerializer
 
 
 class GameSerializer(serializers.ModelSerializer):
-    genres = GenreSerializer(read_only=True, many=True)
+    genres = GenreSerializer(many=True, required=False)
 
     class Meta:
         model = Game
