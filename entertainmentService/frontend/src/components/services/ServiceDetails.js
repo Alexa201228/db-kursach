@@ -1,11 +1,12 @@
 import React, {Fragment, useEffect, useState} from "react";
 import {connect, useDispatch, useSelector} from "react-redux";
-import PropTypes from "prop-types";
-import {getServiceById} from "../../actions/service";
+import PropTypes, {string} from "prop-types";
+import {getServiceById, change_service} from "../../actions/service";
 import {useParams} from "react-router-dom";
 import {Label} from "reactstrap";
-import {Button, Checkbox, Input, MenuItem, OutlinedInput, Select} from "@mui/material";
-import {get_film_list} from "../../actions/film";
+import {Box, Button, Checkbox, Chip, Input, MenuItem, OutlinedInput, Select} from "@mui/material";
+import {get_film_list} from "../../actions/common";
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,16 +20,16 @@ const MenuProps = {
 };
 
 
-export function ServiceDetails(){
+export function ServiceDetails(props){
 
     const dispatch = useDispatch();
     const id = useParams()
-
+    const {service, films} = useSelector(state => state.common)
     const [serviceDetails, setServiceDetails] = useState({
-        name: '',
-        films: [],
-        series: [],
-        games: []
+        name: service?.name,
+        films: service?.films,
+        series: service?.series,
+        games: service?.games
     })
 
     useEffect(() => {
@@ -36,37 +37,42 @@ export function ServiceDetails(){
         dispatch(get_film_list());
     }, [])
 
-    const {service, films} = useSelector(state => state.common)
+
     const onChange = (e) => {
         const {
             target: { value },
         } = e;
-        console.log(value)
+
         if(e.target.name == 'name'){
-            setServiceDetails({...serviceDetails, [e.target.name]: e.target.value})
+            return setServiceDetails({...serviceDetails, [e.target.name]: e.target.value})
         }
-        else{
-            setServiceDetails({
+        return setServiceDetails({
                 ...serviceDetails,
                 [e.target.name]: typeof value === 'string' ? value.split(',') : value
             })
-        }
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
+        props.change_service({
+            'name': serviceDetails.name,
+            'films': serviceDetails.films,
+            'series': serviceDetails.series,
+            'games': serviceDetails.games
+        }, id)
     }
+
     return(
 
         <Fragment>
-            {service &&
+            {!!service && films && serviceDetails.films &&
             <div>
-                <form onSubmit={}>
+                <form onSubmit={onSubmit}>
                     <div>
                         <Label for={'serviceName'}>Название сервиса</Label>
                         <Input id={'serviceName'} name={'name'}
                                defaultValue={service.name}
-                               value={serviceDetails.title} onChange={onChange}/>
+                               value={serviceDetails.name} onChange={onChange}/>
                     </div>
                     <div>
                         <Label for={'serviceFilms'}>Фильмы, доступные на сервисе</Label>
@@ -76,10 +82,17 @@ export function ServiceDetails(){
                             onChange={onChange}
                             name={'films'}
                             input={<OutlinedInput style={{ width: "250px"}}/>}
+                            renderValue={(selected) => {
+                                var names = [];
+                                for(var i = 0; i < selected.length; i++){
+                                    names.push(selected[i]['title'])
+                                }
+                                return names.join(', ')
+                            }}
                             MenuProps={MenuProps}>
-                            {films.map((val) => (
+                            {films.map((val, index) => (
                                 <MenuItem
-                                key={`key-${val}`}
+                                key={index}
                                 value={val}
                                 style={{
                                     display: "flex",
@@ -110,4 +123,4 @@ ServiceDetails.propTypes = {
 }
 
 
-export default connect(null, {})(ServiceDetails);
+export default connect(null, {change_service})(ServiceDetails);

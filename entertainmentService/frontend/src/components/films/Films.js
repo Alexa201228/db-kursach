@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import {Container, Label} from "reactstrap";
 import {Link} from "react-router-dom";
 import {Button, Input, Typography} from "@mui/material";
-import {add_film, delete_film, get_film_list} from "../../actions/film";
+import {add_film, delete_film} from "../../actions/film";
 import {useStyles} from "../services/Services";
+import {get_film_list} from "../../actions/common";
 
 
 export function Films(props){

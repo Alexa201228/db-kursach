@@ -5,7 +5,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView,\
                                             TokenRefreshView
 
 from api.users.views import RegisterUserApiView, UserApiView, LogoutView
-from api.films.views import FilmListView, FilmDetailView
+from api.films.views import FilmListView, FilmDetailView, DirectorListView, ActorsListView, GenreListView
 from api.companies.views import CompanyListView, CompanyDetailView
 from api.games.views import GameListView, GameDetailView
 from api.series.views import SeriesListView, SeriesDetailView
@@ -18,6 +18,9 @@ SubscriptionModelViewSet, SubscriptionListDetailUpdateView
 router = routers.DefaultRouter()
 
 router.register('users', UserApiView, basename='users')
+router.register('actors', ActorsListView, basename='actors')
+router.register('directors', DirectorListView, basename='directors')
+router.register('genres', GenreListView, basename='genres')
 router.register('films', FilmListView, basename='films')
 router.register('companies', CompanyListView, basename='companies')
 router.register('games', GameListView, basename='games')

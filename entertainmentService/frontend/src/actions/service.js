@@ -1,5 +1,5 @@
 import axios from "axios";
-import {ADD_SERVICE, GET_SERVICE, GET_SERVICES, SERVICE_ITEM_DELETED} from "./types";
+import {ADD_SERVICE, CHANGE_SERVICE, GET_SERVICE, GET_SERVICES, SERVICE_ITEM_DELETED} from "./types";
 import {API_URL} from "../constants";
 import {tokenConfig} from "./auth";
 
@@ -53,6 +53,22 @@ export const getServiceById = (service_id) => (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: GET_SERVICE,
+                payload: res.data
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+export const change_service = (data, service_id) => (dispatch, getState) => {
+    const body = JSON.stringify(data)
+    console.log(body)
+    axios
+        .put(`${API_URL}/service/detail/${service_id.id}/`, body, tokenConfig(getState))
+        .then(res => {
+            dispatch({
+                type: CHANGE_SERVICE,
                 payload: res.data
             })
         })

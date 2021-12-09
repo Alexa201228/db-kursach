@@ -1,40 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b144a24c-622d-4d88-aaf9-be0b5761b9c6" name="Changes" comment="Create sidebar with links to components">
-      <change afterPath="$PROJECT_DIR$/entertainmentService/films/migrations/0002_auto_20211205_0919.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/films/migrations/0003_auto_20211205_0959.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/film.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/ServiceDetails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/games/migrations/0002_auto_20211205_0919.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/games/migrations/0003_auto_20211205_0959.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/services/migrations/0004_auto_20211205_0959.py" afterDir="false" />
+    <list default="true" id="b144a24c-622d-4d88-aaf9-be0b5761b9c6" name="Changes" comment="Edit service edit page">
+      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/common.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/FilmDetail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/api/films/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/films/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/api/films/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/films/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/games/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/games/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/games/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/games/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/permissions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/api/series/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/series/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/api/services/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/services/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/user_stuff/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/user_stuff/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/entertainmentService/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/entertainmentService/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/films/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/films/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/film.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/film.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/account/Registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Films.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/Films.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/MenuList.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/MenuList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Services.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/Films.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/Films.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/ServiceDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/ServiceDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/games/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/games/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/services/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/services/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +90,9 @@
       <workItem from="1638376875396" duration="957000" />
       <workItem from="1638460428801" duration="4168000" />
       <workItem from="1638601237350" duration="19560000" />
-      <workItem from="1638677554722" duration="23254000" />
+      <workItem from="1638677554722" duration="28477000" />
+      <workItem from="1638865642687" duration="7060000" />
+      <workItem from="1639032693843" duration="14637000" />
     </task>
     <task id="LOCAL-00001" summary="Add all necessary models to fill db">
       <created>1635687696923</created>
@@ -159,7 +143,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638621899720</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Connect database, add detail service component, film component">
+      <created>1638702613720</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1638702613720</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Edit service edit page">
+      <created>1638722904891</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1638722904891</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +184,8 @@
     <MESSAGE value="Add frontend folder" />
     <MESSAGE value="Create registration, authorization and base view with frontend" />
     <MESSAGE value="Create sidebar with links to components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create sidebar with links to components" />
+    <MESSAGE value="Connect database, add detail service component, film component" />
+    <MESSAGE value="Edit service edit page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit service edit page" />
   </component>
 </project>

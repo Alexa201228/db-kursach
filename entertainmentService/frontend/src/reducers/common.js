@@ -1,8 +1,8 @@
 import {
     ADD_FILM,
-    ADD_SERVICE,
-    DELETE_FILM, GET_FILM,
-    GET_FILMS_LIST,
+    ADD_SERVICE, CHANGE_FILM,
+    DELETE_FILM, GET_DIRECTORS, GET_FILM,
+    GET_FILMS_LIST, GET_GENRES,
     GET_SERVICE,
     GET_SERVICES,
     SERVICE_ITEM_DELETED
@@ -13,6 +13,7 @@ const initialState = {
     service: null,
     films: [],
     film: null,
+    genres: [],
     games: [],
     game: null,
     series: [],
@@ -20,10 +21,13 @@ const initialState = {
     subscriptions: [],
     subscription: null,
     companies: [],
-    company: null
+    company: null,
+    directors: [],
+    actors: []
 };
 
 export default function (state = initialState, action){
+    console.log(action.payload)
     switch (action.type){
         case GET_SERVICES:
             return {
@@ -60,10 +64,21 @@ export default function (state = initialState, action){
                 ...state,
                 films: state.films.filter((film) => film.id != action.payload)
             }
+        case CHANGE_FILM:
         case GET_FILM:
             return{
                 ...state,
                 film: action.payload
+            }
+        case GET_DIRECTORS:
+            return{
+                ...state,
+                directors: action.payload
+            }
+        case GET_GENRES:
+            return{
+                ...state,
+                genres: action.payload
             }
         default:
             return state;
