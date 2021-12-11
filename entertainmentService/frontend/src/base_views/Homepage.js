@@ -16,10 +16,11 @@ export function MainPage(){
             </div>
                 <div className="col-sm-10 area-right float-right">
                         <Switch>
-                            <Route exact path='/film/detail/:id' component={FilmDetail}/>
-                            <Route exact path='/service/detail/:id' component={ServiceDetails}/>
+
+                            <Route exact path='/service/detail/:service_id' component={ServiceDetails}/>
                             <Route path='/service/detail/' component={Services}/>
-                            <Route exact path='/film/detail/' component={Films}/>
+                            <Route exact path='/film/detail/:film_id' component={FilmDetail}/>
+                            <Route path='/film/detail/' component={Films}/>
                         </Switch>
                     </div>
             </div>

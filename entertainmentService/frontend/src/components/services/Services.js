@@ -51,7 +51,7 @@ export function Services(props){
     //Download all services on page load
     useEffect(() => {
         dispatch(get_services());
-    }, []);
+    }, [dispatch]);
 
     const deleteService = (serviceId) => {
         props.delete_service_item(serviceId);

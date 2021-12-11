@@ -1,5 +1,5 @@
 import React, {Fragment} from "react";
-import {CssBaseline, Divider, Drawer, Hidden, List, Toolbar} from "@mui/material";
+import {Button, CssBaseline, Divider, Drawer, Hidden, List, Toolbar} from "@mui/material";
 import {Link, withRouter} from "react-router-dom";
 import {ListItem, MuiThemeProvider} from "material-ui";
 import {makeStyles} from "@mui/styles";
@@ -11,8 +11,7 @@ const MENU_ITEMS = {
     "Series": "/series/detail/",
     "Games": "/game/detail/",
     "Services": "/service/detail/",
-    "Subscriptions": "/subscription/detail/",
-    "Companies": "/company/detail/"
+    "Subscriptions": "/subscription/detail/"
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +58,13 @@ export function MenuList() {
             <Divider/>
             <List>
                 {Object.keys(MENU_ITEMS).map((key, val) => (
-                    <ListItem key={val}><Link to={`${MENU_ITEMS[key]}`}>{key}</Link></ListItem>
+                    <ListItem key={val}
+                    style={{
+                        padding: "0px"
+                    }}><Button style={{
+                        width: "100%",
+                        height: "100%"
+                    }} component={Link} to={`${MENU_ITEMS[key]}`}>{key}</Button></ListItem>
                 ))}
             </List>
         </div>

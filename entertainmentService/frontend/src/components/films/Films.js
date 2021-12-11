@@ -21,7 +21,7 @@ export function Films(props){
     //Download all services on page load
     useEffect(() => {
         dispatch(get_film_list());
-    }, []);
+    }, [dispatch]);
 
     const deleteFilm = (filmId) => {
         props.delete_film(filmId);
@@ -61,8 +61,8 @@ export function Films(props){
                     <thead className={classes.tableHead}>
                     <th>Название фильма</th>
                     <Container>
-                        <th>Редактировать</th>
-                        <th>Удалить</th>
+                        <th >Редактировать</th>
+                        <th >Удалить</th>
                     </Container>
                     </thead>
                     <tbody >

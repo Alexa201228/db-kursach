@@ -12,7 +12,7 @@ class SeriesListView(mixins.ListModelMixin, mixins.RetrieveModelMixin, viewsets.
 
 class SeriesDetailView(viewsets.GenericViewSet, mixins.CreateModelMixin,
                         mixins.UpdateModelMixin, mixins.RetrieveModelMixin,
-                        mixins.DestroyModelMixin):
+                        mixins.DestroyModelMixin, mixins.ListModelMixin):
     serializer_class = SeriesSerializer
     queryset = Series.objects.all()
     permission_classes = [IsManager]

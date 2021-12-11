@@ -16,19 +16,19 @@ class ServiceSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def update(self, instance, *args, **kwargs):
-        print('something')
         validated_data = self.context['request'].data
-        print(self.context['request'])
         instance.name = validated_data['name']
+        films = []
+        series = []
+        games = []
         for film in validated_data['films']:
-            if film not in instance.films.all():
-                instance.films.add(film['id'])
+            films.append(film['id'])
         for serie in validated_data['series']:
-            if serie not in instance.series.all():
-                instance.films.add(serie.id)
+            series.append(serie['id'])
         for game in validated_data['games']:
-            if game not in instance.games.all():
-                instance.films.add(game.id)
-
+            games.append(game['id'])
+        instance.films.set(films)
+        instance.series.set(series)
+        instance.games.set(games)
         instance.save()
         return instance

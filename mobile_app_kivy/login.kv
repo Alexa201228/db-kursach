@@ -1,0 +1,18 @@
+BoxLayout:
+    orientation: 'vertical'
+    Menu:
+        size_hint_y: .1
+        manager: screen_manager
+    ScreenManagement:
+        size_hint_y: .9
+        id: screen_manager
+
+<LoginForm>:
+    TextInput:
+        id: input
+        pos: root.center_x - 220, 300
+        size: 400,50
+    Button:
+        size: 130,40
+        pos: root.center_x - 100, 200
+        text: 'Submit'

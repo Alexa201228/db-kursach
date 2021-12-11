@@ -1,7 +1,7 @@
 import {
     ADD_FILM,
-    ADD_SERVICE, CHANGE_FILM,
-    DELETE_FILM, GET_DIRECTORS, GET_FILM,
+    ADD_SERVICE, CHANGE_FILM, CHANGE_SERVICE,
+    DELETE_FILM, GET_ACTORS, GET_COMPANIES, GET_DIRECTORS, GET_FILM,
     GET_FILMS_LIST, GET_GENRES,
     GET_SERVICE,
     GET_SERVICES,
@@ -10,7 +10,7 @@ import {
 
 const initialState = {
     services: [],
-    service: null,
+    service: localStorage.getItem('service'),
     films: [],
     film: null,
     genres: [],
@@ -44,7 +44,9 @@ export default function (state = initialState, action){
                 ...state,
                 services: [...state.services, action.payload]
             }
+        case CHANGE_SERVICE:
         case GET_SERVICE:
+            localStorage.setItem('service', action.payload)
             return {
                 ...state,
                 service: action.payload
@@ -79,6 +81,16 @@ export default function (state = initialState, action){
             return{
                 ...state,
                 genres: action.payload
+            }
+        case GET_ACTORS:
+            return{
+                ...state,
+                actors: action.payload
+            }
+        case GET_COMPANIES:
+            return{
+                ...state,
+                companies: action.payload
             }
         default:
             return state;

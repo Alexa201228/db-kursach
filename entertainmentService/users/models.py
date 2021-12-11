@@ -55,14 +55,14 @@ class Director(models.Model):
     """
     Сущность 'Режиссер'
     """
-    first_name = models.CharField(max_length=50, verbose_name='Имя')
-    last_name = models.CharField(max_length=50, verbose_name='Фамилия')
+    first_name = models.CharField(max_length=50, verbose_name='Имя', null=True)
+    last_name = models.CharField(max_length=50, verbose_name='Фамилия', null=True)
 
 
 class Actor(models.Model):
     """
     Сущность 'Актер'
     """
-    first_name = models.CharField(max_length=50, verbose_name='Имя')
-    last_name = models.CharField(max_length=50, verbose_name='Фамилия')
+    first_name = models.CharField(max_length=50, verbose_name='Имя', null=True)
+    last_name = models.CharField(max_length=50, verbose_name='Фамилия', null=True)
 

@@ -48,8 +48,9 @@ export const add_service = (data) => (dispatch, getState) => {
 }
 
 export const getServiceById = (service_id) => (dispatch, getState) => {
+    console.log(service_id)
     axios
-        .get(`${API_URL}/service/detail/${service_id.id}/`, tokenConfig(getState))
+        .get(`${API_URL}/service/detail/${service_id}/`, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: GET_SERVICE,
@@ -65,7 +66,7 @@ export const change_service = (data, service_id) => (dispatch, getState) => {
     const body = JSON.stringify(data)
     console.log(body)
     axios
-        .put(`${API_URL}/service/detail/${service_id.id}/`, body, tokenConfig(getState))
+        .put(`${API_URL}/service/detail/${service_id}/`, body, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: CHANGE_SERVICE,

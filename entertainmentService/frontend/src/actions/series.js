@@ -1,15 +1,15 @@
 import axios from "axios";
-import {GET_FILMS_LIST, GET_FILM, ADD_FILM, DELETE_FILM, CHANGE_FILM, GET_DIRECTORS} from "./types";
+import {GET_SERIES, DELETE_SERIES, CHANGE_SERIES, ADD_SERIES} from "./types";
 import {API_URL} from "../constants";
 import {tokenConfig} from "./auth";
 
 
-export const delete_film = (item_id) => (dispatch, getState) =>{
+export const delete_series = (item_id) => (dispatch, getState) =>{
     axios
-        .delete(`${API_URL}/film/detail/${item_id}`, tokenConfig(getState))
+        .delete(`${API_URL}/series/detail/${item_id}`, tokenConfig(getState))
         .then(res => {
             dispatch({
-                type: DELETE_FILM,
+                type: DELETE_SERIES,
                 payload: item_id
             })
         })
@@ -18,13 +18,13 @@ export const delete_film = (item_id) => (dispatch, getState) =>{
         })
 }
 
-export const add_film = (data) => (dispatch, getState) => {
+export const add_series = (data) => (dispatch, getState) => {
     const body = JSON.stringify(data);
     axios
-        .post(API_URL + '/film/detail/', body, tokenConfig(getState))
+        .post(API_URL + '/series/detail/', body, tokenConfig(getState))
         .then(res => {
             dispatch({
-                type: ADD_FILM,
+                type: ADD_SERIES,
                 payload: res.data
             })
         })
@@ -33,12 +33,12 @@ export const add_film = (data) => (dispatch, getState) => {
         })
 }
 
-export const getFilmById = (film_id) => (dispatch, getState) => {
+export const getSeriesById = (series_id) => (dispatch, getState) => {
     axios
-        .get(`${API_URL}/film/detail/${film_id}/`, tokenConfig(getState))
+        .get(`${API_URL}/series/detail/${series_id}/`, tokenConfig(getState))
         .then(res => {
             dispatch({
-                type: GET_FILM,
+                type: GET_SERIES,
                 payload: res.data
             })
         })
@@ -47,14 +47,13 @@ export const getFilmById = (film_id) => (dispatch, getState) => {
         })
 }
 
-export const change_film = (data, film_id) => (dispatch, getState) => {
+export const change_series = (data, series_id) => (dispatch, getState) => {
     const body = JSON.stringify(data)
-    console.log(body)
     axios
-        .put(`${API_URL}/film/detail/${film_id}/`, body, tokenConfig(getState))
+        .put(`${API_URL}/film/detail/${series_id}/`, body, tokenConfig(getState))
         .then(res => {
             dispatch({
-                type: CHANGE_FILM,
+                type: CHANGE_SERIES,
                 payload: res.data
             })
         })
