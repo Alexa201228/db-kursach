@@ -4,37 +4,37 @@ import PropTypes from "prop-types";
 import {Container, Label} from "reactstrap";
 import {Link} from "react-router-dom";
 import {Button, Input, Typography} from "@mui/material";
-import {add_film, delete_film} from "../../actions/film";
 import {useStyles} from "../services/Services";
-import {get_film_list} from "../../actions/common";
+import {get_games_list} from "../../actions/common";
+import {add_game, delete_game} from "../../actions/games";
 
 
-export function Films(props){
+export function Games(props){
 
-    const {films} = useSelector(state => state.common);
+    const {games} = useSelector(state => state.common);
 
-    const [filmCredentials, setFilmCredentials] = useState({
+    const [gameCredentials, setGameCredentials] = useState({
         title: ''
     })
     const dispatch = useDispatch();
 
-    //Download all films on page load
+    //Download all on page load
     useEffect(() => {
-        dispatch(get_film_list());
+        dispatch(get_games_list());
     }, [dispatch]);
 
-    const deleteFilm = (filmId) => {
-        props.delete_film(filmId);
+    const deleteGame= (gameId) => {
+        props.delete_game(gameId);
     }
-    const addNewFilm = (e) =>
+    const addNewGame = (e) =>
     {
         e.preventDefault();
-        props.add_film({
-            'title': filmCredentials.title
+        props.add_game({
+            'title': gameCredentials.title
         })
     }
     const onInputChange = (e) => {
-        setFilmCredentials({...filmCredentials, [e.target.name]: e.target.value})
+        setGameCredentials({...gameCredentials, [e.target.name]: e.target.value})
     }
 
     const classes = useStyles();
@@ -42,35 +42,35 @@ export function Films(props){
     return(
         <Fragment>
             <Container>
-                <form onSubmit={addNewFilm}>
+                <form onSubmit={addNewGame}>
                     <div className={classes.formDivContainer}>
-                        <Label for={'film_name'}>Название фильма</Label>
-                        <Input id={'film_name'} name={'title'}
+                        <Label for={'game_name'}>Название игры</Label>
+                        <Input id={'game_name'} name={'title'}
                                className={classes.input}
-                               value={filmCredentials.title}
+                               value={gameCredentials.title}
                                onChange={onInputChange}
                                />
                     </div>
                     <div className={classes.formDivContainer}>
-                        <Button type={'submit'}>Добавить фильм</Button>
+                        <Button type={'submit'}>Добавить игру</Button>
                     </div>
                 </form>
             </Container>
             <Container>
                 <table className={classes.table}>
                     <thead className={classes.tableHead}>
-                    <th>Название фильма</th>
+                    <th>Название Игры</th>
                     <Container>
                         <th >Редактировать</th>
                         <th >Удалить</th>
                     </Container>
                     </thead>
                     <tbody >
-                    {films.map((film, index) => (
+                    {games.map((game, index) => (
                     <tr key={index} className={classes.tableRow}>
                         <td>
                             <Typography key={`text-${index}`}>
-                                {film.title}
+                                {game.title}
                             </Typography>
                         </td>
                         <Container>
@@ -78,13 +78,13 @@ export function Films(props){
                             <Button
                                 key={`button-${index}`}
                                 component={Link}
-                                to={`${film.id}`}>
+                                to={`${game.id}`}>
                             Изменить
                         </Button>
                         </td>
                         <td>
                             <Button
-                        onClick={() => deleteFilm(film.id)}>
+                        onClick={() => deleteGame(game.id)}>
                             Удалить
                         </Button>
                         </td>
@@ -100,9 +100,9 @@ export function Films(props){
     )
 }
 
-Films.propTypes = {
-    delete_film: PropTypes.func.isRequired,
-    add_film: PropTypes.func.isRequired
+Games.propTypes = {
+    delete_game: PropTypes.func.isRequired,
+    add_game: PropTypes.func.isRequired
 }
 
-export default connect(null, {delete_film, add_film})(Films);
+export default connect(null, {delete_game, add_game})(Games);

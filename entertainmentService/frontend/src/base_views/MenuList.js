@@ -11,7 +11,7 @@ const MENU_ITEMS = {
     "Series": "/series/detail/",
     "Games": "/game/detail/",
     "Services": "/service/detail/",
-    "Subscriptions": "/subscription/detail/"
+    "Subscriptions": "/subscriptions/"
 }
 
 const useStyles = makeStyles((theme) => ({

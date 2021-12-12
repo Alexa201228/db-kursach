@@ -39,7 +39,6 @@ class FilmSerializer(serializers.ModelSerializer):
     def update(self, instance, *args, **kwargs):
 
         validated_data = self.context['request'].data
-        print(validated_data)
         instance.title = validated_data['title']
         instance.director = Director.objects.get(pk=validated_data['director']['id'])
         genres = []

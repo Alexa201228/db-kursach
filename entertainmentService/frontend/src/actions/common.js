@@ -16,7 +16,7 @@ export const getDirectors = () => (dispatch) => {
         .then(res => {
             dispatch({
                 type: GET_DIRECTORS,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {
@@ -29,7 +29,7 @@ export const get_film_list = () => (dispatch, getState) =>{
         .then(res => {
             dispatch({
                 type: GET_FILMS_LIST,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {
@@ -43,7 +43,7 @@ export const get_genres = () => (dispatch) => {
         .then(res => {
             dispatch({
                 type: GET_GENRES,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {
@@ -57,7 +57,7 @@ export const get_series_list = () => (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: GET_SERIES_LIST,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {
@@ -71,7 +71,7 @@ export const get_games_list = () => (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: GET_GAMES_LIST,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {
@@ -85,7 +85,7 @@ export const get_actors = () => (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: GET_ACTORS,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {
@@ -99,7 +99,7 @@ export const get_companies = () => (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: GET_COMPANIES,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {

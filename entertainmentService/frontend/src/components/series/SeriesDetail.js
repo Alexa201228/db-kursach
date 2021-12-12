@@ -3,10 +3,10 @@ import {connect, useDispatch, useSelector} from "react-redux";
 import PropTypes from "prop-types";
 import {Link, useParams} from "react-router-dom";
 import {Label} from "reactstrap";
-import {Button, Input, List, ListItem, MenuItem, OutlinedInput, Select} from "@mui/material";
-import {change_film, getFilmById} from "../../actions/film";
+import {Button, Input, List, ListItem, MenuItem, OutlinedInput, Select, TextField} from "@mui/material";
 import {get_actors, get_companies, get_genres, getDirectors} from "../../actions/common";
 import {useStyles} from "../services/Services";
+import {change_series, getSeriesById} from "../../actions/series";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -16,91 +16,94 @@ const MenuProps = {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
       width: 250,
     },
+      overflowY: {
+        scroll: true
+      }
   },
 };
 
 
-export function FilmDetail(props){
+export function SeriesDetail(props){
 
-    const {film, directors, genres, companies, actors} = useSelector(state => state.common)
+    const {serie, directors, genres, companies, actors} = useSelector(state => state.common)
     const dispatch = useDispatch();
-    const {film_id} = useParams()
+    const {serie_id} = useParams()
 
-    const [filmDetails, setFilmDetails] = useState({
-        title: '',
-        director: '',
-        genres: [],
-        actors: [],
-        companies: [],
+    const [seriesDetails, setSeriesDetails] = useState({
+        title: serie?.title,
+        director: serie?.director,
+        genres: serie?.genres,
+        actors: serie?.actors,
+        companies: serie?.company,
+        num_of_episodes: serie?.series_number
     })
 
     useEffect(() => {
-        dispatch(getFilmById(film_id));
+        dispatch(getSeriesById(serie_id));
         dispatch(getDirectors());
         dispatch(get_genres());
         dispatch(get_actors());
         dispatch(get_companies())
-    }, [film_id])
+    }, [serie_id])
 
     useEffect(() => {
-        setFilmDetails({...filmDetails,
-        title: film?.title,
-        director: film?.director,
-        genres: film?.genres,
-        actors: film?.actors,
-        companies: film?.company})
-    }, [film])
+        setSeriesDetails({...seriesDetails,
+        title: serie?.title,
+        director: serie?.director,
+        genres: serie?.genres,
+        actors: serie?.actors,
+        companies: serie?.company,
+        num_of_episodes: serie?.series_number})
+    }, [serie])
 
     const onChange = (e) => {
         const {
             target: { value },
         } = e;
-        if(e.target.name == 'title' || e.target.name == 'director'){
-            return setFilmDetails({...filmDetails, [e.target.name]: e.target.value})
-        }
-        return setFilmDetails({
-                ...filmDetails,
+        return setSeriesDetails({
+                ...seriesDetails,
                 [e.target.name]: typeof value === 'string' ? value.split(',') : value
             })
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        props.change_film({
-            'title': filmDetails.title,
-            'director': filmDetails.director,
-            'genres': filmDetails.genres,
-            'actors': filmDetails.actors,
-            'company': filmDetails.companies
-        }, film_id)
+        props.change_series({
+            'title': seriesDetails.title,
+            'director': seriesDetails.director,
+            'genres': seriesDetails.genres,
+            'actors': seriesDetails.actors,
+            'company': seriesDetails.companies,
+            'series_number': parseInt(seriesDetails.num_of_episodes)
+        }, serie_id)
     }
-
+    console.log(actors)
     const deleteFromList = (e) => {
         const {
             target: { value },
         } = e;
         var val = JSON.parse(value)
-        return setFilmDetails({
-            ...filmDetails,
-            [e.target.name]: filmDetails[e.target.name].filter(v => v.id != val.id)
+        return setSeriesDetails({
+            ...seriesDetails,
+            [e.target.name]: seriesDetails[e.target.name].filter(v => v.id != val.id)
         })
     }
 
     const classes = useStyles()
     return(
         <Fragment>
-            {!!film && !!directors && filmDetails.genres && filmDetails.actors &&
+            {!!serie && !!directors && seriesDetails.genres && seriesDetails.actors &&
             <div>
                 <form onSubmit={onSubmit}>
                     <table className={classes.table}>
                         <tr className={classes.tableRow}>
                             <td>
-                                <Label for={'filmName'}>Название фильма</Label>
+                                <Label for={'seriesName'}>Название сериала</Label>
                             </td>
                             <td>
-                                <Input id={'filmName'} name={'title'}
-                               defaultValue={film.title}
-                               value={filmDetails.title} onChange={onChange}/>
+                                <Input id={'seriesName'} name={'title'}
+                               defaultValue={serie.title}
+                               value={seriesDetails.title} onChange={onChange}/>
                             </td>
                         </tr>
                         <tr className={classes.tableRow}>
@@ -110,11 +113,11 @@ export function FilmDetail(props){
                             <td>
                                 <Select
                             multiple={false}
-                            value={filmDetails.director}
+
+                            value={seriesDetails.director}
                             onChange={onChange}
                             name={'director'}
-                            error={film_id.director == undefined}
-                            defaultValue={filmDetails.director}
+                            defaultValue={seriesDetails.director}
                             renderValue={selected => `${selected.first_name} ${selected.last_name}` }
                             input={<OutlinedInput style={{ width: "250px"}}/>}
                             MenuProps={MenuProps}>
@@ -135,15 +138,15 @@ export function FilmDetail(props){
                         </tr>
                         <tr className={classes.tableRow}>
                             <td>
-                                <Label for={'filmGenres'}>Жанры</Label>
+                                <Label for={'seriesGenres'}>Жанры</Label>
                             </td>
                             <td>
                                  <Select
                             multiple={true}
-                            value={filmDetails.genres}
+                            value={seriesDetails.genres}
                             onChange={onChange}
                             name={'genres'}
-                            defaultValue={filmDetails.genres}
+                            defaultValue={seriesDetails.genres}
                             input={<OutlinedInput style={{ width: "250px"}}/>}
                             renderValue={(selected) => {
                                 var names = [];
@@ -153,7 +156,7 @@ export function FilmDetail(props){
                                 return names.join(', ')
                             }}
                             MenuProps={MenuProps}>
-                            {genres.filter(g => !filmDetails.genres.some(genr => genr.id == g.id)).map((val, index) => (
+                            {genres.filter(g => !seriesDetails.genres.some(genr => genr.id == g.id)).map((val, index) => (
                                 <MenuItem
                                 key={index}
                                 value={val}
@@ -172,8 +175,8 @@ export function FilmDetail(props){
                                 <List style={{
                                         maxHeight: "200px"
                                     }}>
-                                        {filmDetails.genres.map((val, key) => (
-                                               <ListItem key={`film-${key}`} >
+                                        {seriesDetails.genres.map((val, key) => (
+                                               <ListItem key={`series-${key}`} >
                                                 {val.name}
                                                    <Button name={'genres'} value={`${JSON.stringify(val)}`} onClick={deleteFromList}>X</Button>
                                             </ListItem>
@@ -185,17 +188,16 @@ export function FilmDetail(props){
                         </tr>
                         <tr className={classes.tableRow}>
                             <td>
-                                <Label for={'filmActors'}>Актеры</Label>
+                                <Label for={'seriesActors'}>Актеры</Label>
                             </td>
                             <td>
                                  <Select
                             multiple={true}
-                            value={filmDetails.actors}
+                            value={seriesDetails.actors}
                             onChange={onChange}
                             name={'actors'}
-                            defaultValue={filmDetails.actors}
+                            defaultValue={seriesDetails.actors}
                             input={<OutlinedInput style={{ width: "250px"}}/>}
-
                             renderValue={(selected) => {
                                 var names = [];
                                 for(var i = 0; i < selected.length; i++){
@@ -204,7 +206,7 @@ export function FilmDetail(props){
                                 return names.join(', ')
                             }}
                             MenuProps={MenuProps}>
-                            {actors.filter(a => !filmDetails.actors.some(act => act.id == a.id)).map((val, index) => (
+                            {actors.filter(a => !seriesDetails.actors.some(act => act.id == a.id)).map((val, index) => (
                                 <MenuItem
                                 key={index}
                                 value={val}
@@ -223,7 +225,7 @@ export function FilmDetail(props){
                                 <List style={{
                                         maxHeight: "200px"
                                     }}>
-                                        {filmDetails.actors.map((val, key) => (
+                                        {seriesDetails.actors.map((val, key) => (
                                                <ListItem key={`actor-${key}`} >
                                                 {val.first_name} {val.last_name}
                                                    <Button name={'actors'} value={`${JSON.stringify(val)}`} onClick={deleteFromList}>X</Button>
@@ -241,10 +243,10 @@ export function FilmDetail(props){
                             <td>
                                  <Select
                             multiple={true}
-                            value={filmDetails.companies}
+                            value={seriesDetails.companies}
                             onChange={onChange}
                             name={'companies'}
-                            defaultValue={filmDetails.companies}
+                            defaultValue={seriesDetails.companies}
                             input={<OutlinedInput style={{ width: "250px"}}/>}
                             renderValue={(selected) => {
                                 var names = [];
@@ -254,7 +256,7 @@ export function FilmDetail(props){
                                 return names.join(', ')
                             }}
                             MenuProps={MenuProps}>
-                            {companies.filter(c => !filmDetails.companies.some(comp => comp.id == c.id)).map((val, index) => (
+                            {companies.filter(c => !seriesDetails.companies.some(comp => comp.id == c.id)).map((val, index) => (
                                 <MenuItem
                                 key={index}
                                 value={val}
@@ -273,7 +275,7 @@ export function FilmDetail(props){
                                 <List style={{
                                         maxHeight: "200px"
                                     }}>
-                                        {filmDetails.companies.map((val, key) => (
+                                        {seriesDetails.companies.map((val, key) => (
                                                <ListItem key={`company-${key}`} >
                                                 {val.name}
                                                    <Button name={'companies'} value={`${JSON.stringify(val)}`} onClick={deleteFromList}>X</Button>
@@ -282,6 +284,22 @@ export function FilmDetail(props){
                                         ))
                                         }
                                     </List>
+                            </td>
+                        </tr>
+                        <tr className={classes.tableRow}>
+                            <td>
+                                <Label for={'numOfEpisodes'}>Количество серий (всего)</Label>
+                            </td>
+                            <td>
+                                <TextField
+                                    name={'num_of_episodes'}
+                                    type="number"
+                                    InputProps={{
+                                            inputProps: { min: 1 }
+                                    }}
+                                    value={seriesDetails.num_of_episodes}
+                                    onChange={onChange}
+                                defaultValue={serie.series_number}/>
                             </td>
                         </tr>
                     </table>
@@ -293,7 +311,7 @@ export function FilmDetail(props){
                     <div>
                         <Button
                         component={Link}
-                        to={'/film/detail/'}>
+                        to={'/series/detail/'}>
                             Отмена
                         </Button>
                     </div>
@@ -305,9 +323,9 @@ export function FilmDetail(props){
     )
 }
 
-FilmDetail.propTypes = {
-    change_film: PropTypes.func.isRequired
+SeriesDetail.propTypes = {
+    change_series: PropTypes.func.isRequired
 }
 
 
-export default connect(null, {change_film})(FilmDetail);
+export default connect(null, {change_series})(SeriesDetail);

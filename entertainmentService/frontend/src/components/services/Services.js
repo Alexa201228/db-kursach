@@ -71,7 +71,9 @@ export function Services(props){
 
     return(
         <Fragment>
-            <Container>
+            {services &&
+            <div>
+                <Container>
                 <form onSubmit={addNewService}>
                     <div className={classes.formDivContainer}>
                         <Label for={'service_name'}>Название сервиса</Label>
@@ -125,6 +127,7 @@ export function Services(props){
                 </table>
 
             </Container>
+            </div>}
         </Fragment>
     )
 }

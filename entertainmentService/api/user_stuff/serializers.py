@@ -3,6 +3,7 @@ from rest_framework import serializers
 from user_stuff.models import Community, Subscription, UserGameStatistics,\
     UserFilmStatistics, UserSeriesStatistics, Comment
 from api.users.serializers import UserSerializer
+from api.services.serializers import ServiceSerializer
 
 
 class CommunitySerializer(serializers.ModelSerializer):
@@ -51,9 +52,23 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class SubscriptionSerializer(serializers.ModelSerializer):
-    users = UserSerializer(read_only=True, many=True)
+    users = UserSerializer(read_only=True, many=True, required=False)
+    services = ServiceSerializer(required=False, many=True)
 
     class Meta:
         model = Subscription
         fields = '__all__'
         extra_kwargs = {'id': {'read_only': True}}
+
+    def update(self, instance, *args, **kwargs):
+
+        validated_data = self.context['request'].data
+        instance.title = validated_data['name']
+        services = []
+
+        for service in validated_data['services']:
+            services.append(service['id'])
+        instance.services.set(services)
+        instance.duration = validated_data['duration']
+        instance.save()
+        return instance

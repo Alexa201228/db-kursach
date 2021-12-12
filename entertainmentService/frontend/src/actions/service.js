@@ -6,9 +6,10 @@ import {tokenConfig} from "./auth";
 export const get_services = () => (dispatch, getState) =>{
     axios.get(API_URL + '/service/detail/', tokenConfig(getState))
         .then(res => {
+            console.log(res)
             dispatch({
                 type: GET_SERVICES,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {
@@ -72,6 +73,7 @@ export const change_service = (data, service_id) => (dispatch, getState) => {
                 type: CHANGE_SERVICE,
                 payload: res.data
             })
+            alert('Изменения применены')
         })
         .catch(err => {
             console.log(err)

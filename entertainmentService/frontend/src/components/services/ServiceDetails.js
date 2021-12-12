@@ -30,10 +30,10 @@ export function ServiceDetails(props){
     const {service_id} = useParams();
 
     const [serviceDetails, setServiceDetails] = useState({
-        name: '',
-        films: [],
-        series: [],
-        games: []
+                name: service?.name,
+                films: service?.films,
+                series: service?.series,
+                games: service?.games
     })
 
     useEffect(() => {
@@ -45,12 +45,12 @@ export function ServiceDetails(props){
 
     useEffect(() => {
         setServiceDetails({...serviceDetails,
-                name: service.name,
-                films: service.films,
-                series: service.series,
-                games: service.games})
+                name: service?.name,
+                films: service?.films,
+                series: service?.series,
+                games: service?.games})
     }, [service])
-
+    console.log(serviceDetails)
     const onChange = (e) => {
         const {
             target: { value },

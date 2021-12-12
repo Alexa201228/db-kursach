@@ -49,13 +49,15 @@ export const getSeriesById = (series_id) => (dispatch, getState) => {
 
 export const change_series = (data, series_id) => (dispatch, getState) => {
     const body = JSON.stringify(data)
+    console.log(body)
     axios
-        .put(`${API_URL}/film/detail/${series_id}/`, body, tokenConfig(getState))
+        .put(`${API_URL}/series/detail/${series_id}/`, body, tokenConfig(getState))
         .then(res => {
             dispatch({
                 type: CHANGE_SERIES,
                 payload: res.data
             })
+            alert('Изменения применены')
         })
         .catch(err => {
             console.log(err)

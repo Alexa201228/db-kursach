@@ -8,7 +8,7 @@ class Genre(models.Model):
     """
     Сущность 'Жанр'
     """
-    name = models.CharField(max_length=50, verbose_name='Название жанра')
+    name = models.CharField(max_length=50, verbose_name='Название жанра', null=True)
 
 
 class Film(models.Model):

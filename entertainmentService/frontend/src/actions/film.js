@@ -49,7 +49,6 @@ export const getFilmById = (film_id) => (dispatch, getState) => {
 
 export const change_film = (data, film_id) => (dispatch, getState) => {
     const body = JSON.stringify(data)
-    console.log(body)
     axios
         .put(`${API_URL}/film/detail/${film_id}/`, body, tokenConfig(getState))
         .then(res => {
@@ -57,6 +56,7 @@ export const change_film = (data, film_id) => (dispatch, getState) => {
                 type: CHANGE_FILM,
                 payload: res.data
             })
+            alert('Изменения применены')
         })
         .catch(err => {
             console.log(err)
