@@ -1,45 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b144a24c-622d-4d88-aaf9-be0b5761b9c6" name="Changes" comment="Edit service and film pages (add create/change/delete functionality)">
-      <change afterPath="$PROJECT_DIR$/entertainmentService/films/migrations/0004_alter_genre_name.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/games/Games.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/series/Series.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/series/SeriesDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/subscriptions/SubscriptionDetail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/subscriptions/Subscriptions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/series/migrations/0002_auto_20211212_0748.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/series/migrations/0003_alter_series_company.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/series/migrations/0004_alter_series_director.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/series/migrations/0005_alter_series_actors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/series/migrations/0006_alter_series_series_number.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entertainmentService/series/migrations/0007_alter_series_title.py" afterDir="false" />
+    <list default="true" id="b144a24c-622d-4d88-aaf9-be0b5761b9c6" name="Changes" comment="Finish web app and fill db with directors and actors">
+      <change afterPath="$PROJECT_DIR$/entertainmentService/user_stuff/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entertainmentService/user_stuff/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mobile_app_kivy/user_data_store" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/films/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/films/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/games/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/games/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/series/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/series/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/api/user_stuff/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/api/user_stuff/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entertainmentService/entertainmentService/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/entertainmentService/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/films/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/films/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/film.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/film.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/games.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/games.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/series.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/series.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/service.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/subscriptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/subscriptions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/Homepage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/MenuList.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/base_views/MenuList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/FilmDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/FilmDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/Films.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/films/Films.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/ServiceDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/ServiceDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Services.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/services/Services.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/reducers/common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/series/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/series/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/user_stuff/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/user_stuff/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/frontend/src/components/games/GameDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entertainmentService/user_stuff/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/entertainmentService/user_stuff/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile_app_kivy/login.kv" beforeDir="false" afterPath="$PROJECT_DIR$/mobile_app_kivy/login.kv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile_app_kivy/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/mobile_app_kivy/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +116,10 @@
       <workItem from="1639032693843" duration="15072000" />
       <workItem from="1639110976104" duration="25154000" />
       <workItem from="1639215192592" duration="16361000" />
-      <workItem from="1639283118232" duration="21176000" />
+      <workItem from="1639283118232" duration="21837000" />
+      <workItem from="1639339590347" duration="5000" />
+      <workItem from="1639402386123" duration="9538000" />
+      <workItem from="1639494752934" duration="10126000" />
     </task>
     <task id="LOCAL-00001" summary="Add all necessary models to fill db">
       <created>1635687696923</created>
@@ -226,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639239888085</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Finish web app and fill db with directors and actors">
+      <created>1639314468507</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1639314468507</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,9 +236,10 @@
     <MESSAGE value="Edit service edit page" />
     <MESSAGE value="Edit service and film pages" />
     <MESSAGE value="Edit service and film pages (add create/change/delete functionality)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit service and film pages (add create/change/delete functionality)" />
+    <MESSAGE value="Finish web app and fill db with directors and actors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish web app and fill db with directors and actors" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/db_kursach$main.coverage" NAME="main Coverage Results" MODIFIED="1639215801507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mobile_app_kivy" />
+    <SUITE FILE_PATH="coverage/db_kursach$main.coverage" NAME="main Coverage Results" MODIFIED="1639505047078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mobile_app_kivy" />
   </component>
 </project>

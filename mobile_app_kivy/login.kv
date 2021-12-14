@@ -6,13 +6,68 @@ BoxLayout:
     ScreenManagement:
         size_hint_y: .9
         id: screen_manager
+<Menu>:
+    orientation: "vertical"
+    ActionBar:
+        top: 0
+        ActionView:
+            ActionPrevious:
+            ActionButton:
+                text: 'Главная'
+                on_press: root.manager.current = 'screen_home'
+            ActionButton:
+                text: 'Профиль'
+            ActionButton:
+                text: 'Логин'
+                on_press: root.manager.current = 'screen_login'
+<ScreenManagement>:
+    id: screen_manager
+    HomeScreen:
+        name: 'screen_home'
+        manager: 'screen_manager'
+    LoginScreen:
+        name: 'screen_login'
+        manager: 'screen_manager'
+
+
+<MainRecycleView>:
+    viewclass: 'Label'
+    RecycleBoxLayout:
+        color: 1,1,1,1
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<HomeScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        MainRecycleView:
 
 <LoginForm>:
+    email: input
+    password: input
+    Label:
+        id: login_label
+        pos: root.center_x - 50, 400
+        text: "Login"
+        color: 'blue'
+        font_size: 30
     TextInput:
-        id: input
-        pos: root.center_x - 220, 300
-        size: 400,50
+        id: email
+        hint_text: "Email"
+        pos: root.center_x - 100, 350
+        size: 200, 30
+    TextInput:
+        id: password
+        hint_text: "Password"
+        pos: root.center_x - 100, 300
+        size: 200, 30
+        password: True
     Button:
-        size: 130,40
-        pos: root.center_x - 100, 200
+        size: 100,10
+        pos: root.center_x - 50, 250
         text: 'Submit'
+        on_release: root.login_user()
+
