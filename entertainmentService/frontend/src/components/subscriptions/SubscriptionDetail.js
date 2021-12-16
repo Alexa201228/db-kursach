@@ -41,7 +41,8 @@ export function SubscriptionDetail(props){
     const [subscriptionDetails, setSubscriptionDetails] = useState({
         name: subscription?.name,
         duration: subscription?.duration,
-        services: subscription?.services
+        services: subscription?.services,
+        price: subscription?.price
     })
 
     useEffect(() => {
@@ -53,7 +54,8 @@ export function SubscriptionDetail(props){
         setSubscriptionDetails({...subscriptionDetails,
         name: subscription?.name,
         duration: subscription?.duration,
-        services: subscription?.services})
+        services: subscription?.services,
+        price: subscription?.price})
     }, [subscription])
 
     const onChange = (e) => {
@@ -119,6 +121,19 @@ export function SubscriptionDetail(props){
                                            InputProps={{
                                             inputProps: { min: 7 }
                                     }}/>
+                            </td>
+                        </tr>
+                        <tr className={classes.tableRow}>
+                            <td>
+                                <Label for={'subscriptionPrice'}>Стоимость подписки</Label>
+                            </td>
+                            <td>
+                                <TextField name={'price'}
+                                            defaultValue={subscription.price}
+                                            value={subscriptionDetails.price}
+                                            type={'number'}
+                                           onChange={onChange}
+                                            label={'Price'}/>$
                             </td>
                         </tr>
                         <tr className={classes.tableRow}>

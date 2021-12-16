@@ -20,7 +20,7 @@ export function Subscriptions(props){
     //Download all on page load
     useEffect(() => {
         dispatch(get_subscriptions_list());
-    }, [dispatch]);
+    }, []);
 
     const deleteSubscription= (subscriptionId) => {
         props.delete_subscription(subscriptionId);
@@ -35,7 +35,7 @@ export function Subscriptions(props){
     const onInputChange = (e) => {
         setSubscriptionCredentials({...subscriptionCredentials, [e.target.name]: e.target.value})
     }
-
+    console.log(subscriptions)
     const classes = useStyles();
     return(
         <Fragment>

@@ -17,7 +17,7 @@ export const get_subscriptions_list = () => (dispatch, getState) => {
         .then(res => {
             dispatch({
                 type: GET_SUBSCRIPTIONS_LIST,
-                payload: res.data.results
+                payload: res.data
             })
         })
         .catch(err => {

@@ -11,6 +11,7 @@ import Games from "../components/games/Games";
 import GameDetail from "../components/games/GameDetail";
 import Subscriptions from "../components/subscriptions/Subscriptions";
 import SubscriptionDetail from "../components/subscriptions/SubscriptionDetail";
+import PrivateRoute from "../components/common/PrivateRoute";
 
 export function MainPage(){
 
@@ -23,16 +24,16 @@ export function MainPage(){
                 <div className="col-sm-10 area-right float-right">
                         <Switch>
 
-                            <Route exact path='/service/detail/:service_id' component={ServiceDetails}/>
-                            <Route path='/service/detail/' component={Services}/>
-                            <Route exact path='/film/detail/:film_id' component={FilmDetail}/>
-                            <Route path='/film/detail/' component={Films}/>
-                            <Route exact path='/series/detail/:serie_id' component={SeriesDetail}/>
-                            <Route path='/series/detail/' component={Series}/>
-                            <Route exact path='/game/detail/:game_id' component={GameDetail}/>
-                            <Route path='/game/detail/' component={Games}/>
-                            <Route exact path='/subscriptions/:subscription_id' component={SubscriptionDetail}/>
-                            <Route path='/subscriptions/' component={Subscriptions}/>
+                            <PrivateRoute exact path='/service/detail/:service_id' component={ServiceDetails}/>
+                            <PrivateRoute path='/service/detail/' component={Services}/>
+                            <PrivateRoute exact path='/film/detail/:film_id' component={FilmDetail}/>
+                            <PrivateRoute path='/film/detail/' component={Films}/>
+                            <PrivateRoute exact path='/series/detail/:serie_id' component={SeriesDetail}/>
+                            <PrivateRoute path='/series/detail/' component={Series}/>
+                            <PrivateRoute exact path='/game/detail/:game_id' component={GameDetail}/>
+                            <PrivateRoute path='/game/detail/' component={Games}/>
+                            <PrivateRoute exact path='/subscriptions/:subscription_id' component={SubscriptionDetail}/>
+                            <PrivateRoute path='/subscriptions/' component={Subscriptions}/>
                         </Switch>
                     </div>
             </div>

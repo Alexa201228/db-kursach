@@ -1,4 +1,4 @@
-from rest_framework import mixins, viewsets
+from rest_framework import mixins, viewsets, permissions
 from rest_framework.generics import get_object_or_404
 
 from .serializers import CommentSerializer, CommunitySerializer, \
@@ -63,3 +63,4 @@ class SubscriptionListDetailUpdateView(mixins.ListModelMixin,
                                        viewsets.GenericViewSet):
     serializer_class = SubscriptionSerializer
     queryset = Subscription.objects.all()
+    permission_classes = [permissions.AllowAny]

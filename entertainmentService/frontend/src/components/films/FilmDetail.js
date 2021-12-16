@@ -113,7 +113,6 @@ export function FilmDetail(props){
                             value={filmDetails.director}
                             onChange={onChange}
                             name={'director'}
-                            error={film_id.director == undefined}
                             defaultValue={filmDetails.director}
                             renderValue={selected => `${selected.first_name} ${selected.last_name}` }
                             input={<OutlinedInput style={{ width: "250px"}}/>}

@@ -26,6 +26,7 @@ class Subscription(models.Model):
     duration = models.IntegerField(verbose_name='Срок подписки', null=True, blank=True)
     users = models.ManyToManyField(User, related_name='subscriptions', blank=True)
     services = models.ManyToManyField(Service, related_name='subscriptions', blank=True)
+    price = models.IntegerField(null=True, blank=True)
 
 
 class UserGameStatistics(models.Model):
@@ -33,9 +34,9 @@ class UserGameStatistics(models.Model):
     Сущность 'Игровая статистика пользователя'
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='game_statistics')
-    games = models.ForeignKey(Game, on_delete=models.DO_NOTHING, related_name='game_statistics', blank=True)
+    games = models.ManyToManyField(Game, related_name='game_statistics', blank=True)
     genres = models.ManyToManyField(Genre, related_name='game_statistics', blank=True)
-    spent_time = models.TimeField(verbose_name='Затраченное время')
+    spent_time = models.TimeField(verbose_name='Затраченное время', null=True, blank=True)
 
 
 class UserFilmStatistics(models.Model):
@@ -43,9 +44,9 @@ class UserFilmStatistics(models.Model):
         Сущность 'Статистика пользователя по фильмам'
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='film_statistics')
-    films = models.ForeignKey(Film, on_delete=models.DO_NOTHING, related_name='film_statistics', blank=True)
+    films = models.ManyToManyField(Film, related_name='film_statistics', blank=True)
     genres = models.ManyToManyField(Genre, related_name='film_statistics', blank=True)
-    spent_time = models.TimeField(verbose_name='Затраченное время')
+    spent_time = models.TimeField(verbose_name='Затраченное время', null=True, blank=True)
 
 
 class UserSeriesStatistics(models.Model):
@@ -53,9 +54,9 @@ class UserSeriesStatistics(models.Model):
         Сущность 'Статистика пользователя по сериалам'
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='series_statistics')
-    series = models.ForeignKey(Series, on_delete=models.DO_NOTHING, related_name='series_statistics', blank=True)
+    series = models.ManyToManyField(Series, related_name='series_statistics', blank=True)
     genres = models.ManyToManyField(Genre, related_name='series_statistics', blank=True)
-    spent_time = models.TimeField(verbose_name='Затраченное время')
+    spent_time = models.TimeField(verbose_name='Затраченное время', null=True, blank=True)
 
 
 class Comment(models.Model):
@@ -63,4 +64,4 @@ class Comment(models.Model):
     Сущность 'Комментарий'
     """
     comment_body = models.TextField(verbose_name='Текст комментария')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='comments')

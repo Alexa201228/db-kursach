@@ -3,7 +3,6 @@ import {LOGIN_SUCCESS, LOGOUT_USER, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED
 const initialState = {
     access_token: localStorage.getItem('access_token'),
     refresh_token: localStorage.getItem('refresh_token'),
-    user: null,
     isAuthenticated: false
 };
 
